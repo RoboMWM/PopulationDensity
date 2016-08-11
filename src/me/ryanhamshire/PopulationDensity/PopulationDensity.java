@@ -384,11 +384,11 @@ public class PopulationDensity extends JavaPlugin
         outConfig.set("PopulationDensity.Region Name List", regionNames);
 		
 		//this is a combination load/preprocess/save for custom signs on the region posts
-		this.mainCustomSignContent = this.initializeSignContentConfig(outConfig, "PopulationDensity.CustomSigns.Main", new String [] {"", "Population", "Density", ""});
-		this.northCustomSignContent = this.initializeSignContentConfig(outConfig, "PopulationDensity.CustomSigns.North", new String [] {"", "", "", ""});
-		this.southCustomSignContent = this.initializeSignContentConfig(outConfig, "PopulationDensity.CustomSigns.South", new String [] {"", "", "", ""});
-		this.eastCustomSignContent = this.initializeSignContentConfig(outConfig, "PopulationDensity.CustomSigns.East", new String [] {"", "", "", ""});
-		this.westCustomSignContent = this.initializeSignContentConfig(outConfig, "PopulationDensity.CustomSigns.West", new String [] {"", "", "", ""});
+		this.mainCustomSignContent = this.initializeSignContentConfig(config, outConfig, "PopulationDensity.CustomSigns.Main", new String [] {"", "Population", "Density", ""});
+		this.northCustomSignContent = this.initializeSignContentConfig(config, outConfig, "PopulationDensity.CustomSigns.North", new String [] {"", "", "", ""});
+		this.southCustomSignContent = this.initializeSignContentConfig(config, outConfig, "PopulationDensity.CustomSigns.South", new String [] {"", "", "", ""});
+		this.eastCustomSignContent = this.initializeSignContentConfig(config, outConfig, "PopulationDensity.CustomSigns.East", new String [] {"", "", "", ""});
+		this.westCustomSignContent = this.initializeSignContentConfig(config, outConfig, "PopulationDensity.CustomSigns.West", new String [] {"", "", "", ""});
 		
 		try
 		{
@@ -495,7 +495,7 @@ public class PopulationDensity extends JavaPlugin
         return null;
     }
 
-    public String [] initializeSignContentConfig(FileConfiguration config, String configurationNode, String [] defaultLines)
+    public String [] initializeSignContentConfig(FileConfiguration config, FileConfiguration outConfig, String configurationNode, String [] defaultLines)
 	{
 		//read what's in the file
 		List<String> linesFromConfig = config.getStringList(configurationNode);
@@ -517,7 +517,7 @@ public class PopulationDensity extends JavaPlugin
 		}
 		
 		//write it back to the config file
-		config.set(configurationNode, linesFromConfig);
+		outConfig.set(configurationNode, linesFromConfig);
 		
 		//would the sign be empty?
 		boolean emptySign = true;
