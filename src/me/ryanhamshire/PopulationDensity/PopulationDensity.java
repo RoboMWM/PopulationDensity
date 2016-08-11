@@ -384,11 +384,11 @@ public class PopulationDensity extends JavaPlugin
         outConfig.set("PopulationDensity.Region Name List", regionNames);
 		
 		//this is a combination load/preprocess/save for custom signs on the region posts
-		this.mainCustomSignContent = this.initializeSignContentConfig(config, "PopulationDensity.CustomSigns.Main", new String [] {"", "Population", "Density", ""});
-		this.northCustomSignContent = this.initializeSignContentConfig(config, "PopulationDensity.CustomSigns.North", new String [] {"", "", "", ""});
-		this.southCustomSignContent = this.initializeSignContentConfig(config, "PopulationDensity.CustomSigns.South", new String [] {"", "", "", ""});
-		this.eastCustomSignContent = this.initializeSignContentConfig(config, "PopulationDensity.CustomSigns.East", new String [] {"", "", "", ""});
-		this.westCustomSignContent = this.initializeSignContentConfig(config, "PopulationDensity.CustomSigns.West", new String [] {"", "", "", ""});
+		this.mainCustomSignContent = this.initializeSignContentConfig(outConfig, "PopulationDensity.CustomSigns.Main", new String [] {"", "Population", "Density", ""});
+		this.northCustomSignContent = this.initializeSignContentConfig(outConfig, "PopulationDensity.CustomSigns.North", new String [] {"", "", "", ""});
+		this.southCustomSignContent = this.initializeSignContentConfig(outConfig, "PopulationDensity.CustomSigns.South", new String [] {"", "", "", ""});
+		this.eastCustomSignContent = this.initializeSignContentConfig(outConfig, "PopulationDensity.CustomSigns.East", new String [] {"", "", "", ""});
+		this.westCustomSignContent = this.initializeSignContentConfig(outConfig, "PopulationDensity.CustomSigns.West", new String [] {"", "", "", ""});
 		
 		try
 		{
