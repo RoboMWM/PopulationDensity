@@ -123,7 +123,10 @@ public class WorldEventHandler implements Listener
         }
         
         //if in the dark, treat as wilderness creature which won't live as long
-        byte lightLevel = entity.getLocation().getBlock().getLightFromBlocks();
+        byte lightLevel = 15;
+        int yLocation = entity.getLocation().getBlockY();
+        if (yLocation < 255 && yLocation > 0) //Only check light levels if we're within the buildable y-coordinates
+            lightLevel = entity.getLocation().getBlock().getLightFromBlocks();
         if(lightLevel < 4 && entity.getTicksLived() > darkMaxTicks)  //in the dark
         {
             return true;
